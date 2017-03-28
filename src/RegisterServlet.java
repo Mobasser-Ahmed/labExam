@@ -22,7 +22,18 @@ public class RegisterServlet extends HttpServlet {
 		PrintWriter out= response.getWriter();
 		out.println("<html>");
 		out.println("<body>");
-		out.println("<form method='post'>");
+		out.print("<center>");
+		out.print("<table border='3'>");
+		
+		out.print("<tr>");
+		out.print("<th>");
+		out.print("Registration");
+		out.print("</th>");
+		out.print("</tr>");
+		
+		out.print("<tr>");
+		out.print("<td>");
+		out.println("<form  method='post'>");
 		out.println("ID:<br><input type='text' name='ID' ><br>");
 		out.println("Password:<br><input type='password' name='pass' ><br>");
 		out.println(" Confirm Password:<br><input type='password' name='cpass' ><br>");
@@ -35,6 +46,9 @@ public class RegisterServlet extends HttpServlet {
 		out.println("<input type='submit' value='Sign up'>");
 		out.println("<a href='LoginServlet'>sign in</a>");
 		out.println("</form> ");
+		out.print("</td>");
+		out.print("</tr>");
+		out.print("</table>");
 		out.println("</body>");
 		out.println("</html>");
 	}
@@ -72,8 +86,8 @@ public class RegisterServlet extends HttpServlet {
 			else {
 				int cn= st.executeUpdate(add);
 				if(cn==1)
-					out.println("Registration successful");
-				 out.println("<html><body><a href='LoginServlet'>Log in</a></body></html>");
+				 out.println("Registration successful");
+				 response.sendRedirect("LoginServlet");
 				    
 				
 			}

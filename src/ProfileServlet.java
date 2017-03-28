@@ -24,7 +24,10 @@ public class ProfileServlet extends HttpServlet {
 	
 	
 		HttpSession session= request.getSession();
-		
+		if(session==null){
+			response.sendRedirect("LoginServlet");
+		}
+		else{
 		String id= (String) session.getAttribute("id");
 		//id= Integer.parseInt(id);
 		
@@ -73,9 +76,7 @@ public class ProfileServlet extends HttpServlet {
 	
 			out.println("<br><a href='UserServlet'>GoHome</a>");
 	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 	}
+
 
 }

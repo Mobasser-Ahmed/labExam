@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 
@@ -20,7 +21,11 @@ public class ViewUserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out= response.getWriter();
 	
-		
+		HttpSession session = request.getSession();
+		if(session == null ){
+			response.sendRedirect("LoginServlet");
+		}
+		else{
 		
 		String url="jdbc:mysql://localhost:3306/login";
 		String user="root";
@@ -82,11 +87,10 @@ public class ViewUserServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		out.println("<br><a href='UserServlet'>GoHome</a>");
+		}
 		
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	}
+	
 
 }

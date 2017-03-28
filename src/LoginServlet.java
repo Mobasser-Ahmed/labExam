@@ -167,14 +167,9 @@ public class LoginServlet extends HttpServlet {
 			///----test---///
 				
 				System.out.println("login servlet array sr");
-			    Cookie ckr[]=request.getCookies();  
-			    for(int i=0;i<ckr.length;i++){  
-
-			     System.out.println("\n\n"+ckr[i].getName()+" "+ckr[i].getValue());//printing name and value of cookie  
-			    }  
-			    System.out.println("login servlet array last");
+			    
 				
-				System.out.println("this is typ1: "+typ );
+				
 				
 				
 				
